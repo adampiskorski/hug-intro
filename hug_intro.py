@@ -1,6 +1,6 @@
 import hug
 
-hug.local()
+@hug.local()
 def hello(name: hug.types.text):
     """Hello world"""
     return {'message': 'hello {0}'.format(name)}
