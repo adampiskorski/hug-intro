@@ -2,6 +2,7 @@ from datetime import datetime
 from sqlalchemy import Column, DateTime, String, Integer, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
@@ -17,6 +18,12 @@ class ToDo(Base):
     created = Column(DateTime, default=datetime.utcnow)
     updated = Column(DateTime)
 
+    def as_dict(self):
+        """Return a dictionary representation of the todo item"""
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
 engine = create_engine('sqlite:///hug_intro.db')
 
 Base.metadata.create_all(engine)
+
+session = sessionmaker(bind=engine)()
