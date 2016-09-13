@@ -1,3 +1,5 @@
+hug_intro.db
+
 ### Python files ###
 *.pyc
 __pycache__
