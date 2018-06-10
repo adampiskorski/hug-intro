@@ -1,6 +1,0 @@
-falcon
-hug
-python-mimeparse
-requests
-six
-SQLAlchemy
