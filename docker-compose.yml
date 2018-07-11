@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  hug-intro:
+    image: hug-intro
+    build: .
+    ports:
+      - 8000:8000
