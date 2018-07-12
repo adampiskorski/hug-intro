@@ -40,7 +40,7 @@ def by_id(id: hug.types.number):
     return {'To Do': todo.as_dict()}
 
 
-@hug.get()
+@hug.put()
 @hug.cli()
 @hug.local()
 def add(todo: hug.types.text, assignee: hug.types.text=None, category: hug.types.text=None):
@@ -51,7 +51,7 @@ def add(todo: hug.types.text, assignee: hug.types.text=None, category: hug.types
     return {'id': todo_db.id}
 
 
-@hug.get()
+@hug.put()
 @hug.cli()
 @hug.local()
 def delete(id: hug.types.number):
@@ -66,11 +66,11 @@ def delete(id: hug.types.number):
     return {'result': result}
 
 
-@hug.get()
+@hug.put()
 @hug.cli()
 @hug.local()
 def update(id: hug.types.number, todo: hug.types.text=None, assignee: hug.types.text=None, category:hug.types.text=None):
-    """Delete the todo item by ID"""
+    """update the todo item by ID"""
     todo_db = session.query(ToDo).get(id)
     old_todo_db = todo_db.as_dict()
     if todo:
