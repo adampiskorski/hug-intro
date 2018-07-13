@@ -9,6 +9,7 @@ hug = "*"
 python-mimeparse = "*"
 requests = "*"
 sqlalchemy = "*"
+gunicorn = "*"
 
 [dev-packages]
 pylint = "*"

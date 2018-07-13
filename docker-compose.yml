@@ -1,4 +1,4 @@
-version: '3'
+version: '3.6'
 
 services:
   hug-todo:
@@ -6,3 +6,9 @@ services:
     build: .
     ports:
       - 8000:8000
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    tty: true
+    command: --reload --access-logfile "-" --error-logfile "-" --log-level debug
